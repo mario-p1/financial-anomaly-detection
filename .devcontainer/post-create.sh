@@ -1,0 +1,1 @@
+sudo chown -R vscode:vscode /home/vscode/.claude

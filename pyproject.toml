@@ -1,0 +1,37 @@
+[project]
+name = "financial-anomaly-detection"
+version = "0.1.0"
+description = "A GNN classifier for detecting financial anomalies at public companies, compared against XGBoost and MLP baselines."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "mlflow>=3.14.0",
+    "networkx>=3.6.1",
+    "optuna>=4.9.0",
+    "optuna-dashboard>=0.20.0",
+    "pandas>=2.3.3",
+    "scikit-learn>=1.9.0",
+    "shap>=0.52.0",
+    "tensorboard>=2.21.0",
+    "torch-geometric>=2.8.0.post1",
+    "typer>=0.27.1",
+    "xgboost>=3.3.0",
+    "matplotlib>=3.11.0",
+    "notebook>=7.6.0",
+    "lightning>=2.6.6",
+    "torch>=2.12.1",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ "index" = "pytorch-cpu" }]
+
+[tool.ruff.flake8-bugbear]
+extend-immutable-calls = ["typer.Option"]
+
+[dependency-groups]
+dev = ["ruff>=0.16.10"]

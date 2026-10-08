@@ -1,0 +1,2 @@
+- Run all Python through `uv run`.
+- To read notebooks, first try `nbconvert` directly to stdout then request full nbconvert only if strictly necessary
