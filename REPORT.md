@@ -156,10 +156,13 @@ The neural network hyperparameters were tuned by hand, with the learning rate, h
 Training is logged to TensorBoard (see the Reproducing the Results section in [README.md](README.md)).
 
 ## Model Performance
-### Rolling Yearly Splits
 Each model is run on two splits: train up to year *T-2*, validate on *T-1*, test on *T*.
 The validation year is used for early stopping and threshold selection. The test year is always the year after the validation year, so the test columns measure performance one year forward.
 
+### Model Comparison
+![Model performance across the rolling yearly test splits](model_performance_chart.svg)
+
+### Detailed Results
 | Model | Trained on | Val year | Val pos. rate (%) | Val MCC (1) | Val AU-PRC (1) | Val AU-ROC | Test year | Test pos. rate (%) | Test MCC (2) | Test AU-PRC | Test AU-ROC |
 |-|-|-|-|-|-|-|-|-|-|-|-|
 | XGBoost Tabular | 2014-2019 | 2020 | 4.8% | 0.39 | 0.36 | 0.85 | 2021 | 3.8% | 0.21 | 0.18 | 0.80 |
@@ -184,7 +187,7 @@ The validation columns are reported to show the drop to the test year, which is 
 - The gap combines two effects, optimism from selecting on the validation year and real year-over-year drift. These are not separated here, as that would require extra runs beyond the scope of this project.
 - The positive rate also drifts (3.8% in 2021 to 2.4% in 2022). AU-PRC is sensitive to the positive rate and AU-ROC is not, so a lower AU-PRC does not by itself mean worse ranking.
 
-#### A Practical Problem With This Setup
+### A Practical Problem With This Setup
 The final model is never trained on the validation year, although it is the year closest to the test year. A better setup would use the validation year only for hyperparameter selection, then retrain on all years including it. This was left out due to time, but it only requires one extra training run per model.
 
 ## Conclusion
