@@ -1,5 +1,6 @@
 # Graph Neural Networks for Financial Anomaly Detection on FiGraph
-A Graph Neural Network classifier for detecting financial anomalies at public companies, trained on the [FiGraph dataset](https://github.com/XiaoguangWang23/FiGraph) and compared against XGBoost and MLP baselines.
+A Graph Neural Network classifier for detecting financial anomalies at public companies, trained on the [FiGraph dataset](https://github.com/XiaoguangWang23/FiGraph), a heterogeneous graph of listed companies, people, auditors and other related entities, with yearly financial features for each company.
+The GNNs are compared against XGBoost and MLP baselines.
 
 ## Results
 The chart below summarizes test performance. The [project report](REPORT.md) has the exploratory analysis, full methodology, per-split metrics and lessons learned.

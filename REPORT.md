@@ -4,7 +4,7 @@
 
 **Goal:** Build a GNN classifier that detects financial anomalies using a company's network of relationships, and compare it with models trained on financial attributes alone.
 
-**Approach:** Using [FiGraph](https://github.com/XiaoguangWang23/FiGraph), a real-world dynamic heterogeneous graph of listed companies with ground-truth anomaly labels, anomaly detection is treated as node classification on the listed-company nodes.
+**Approach:** [FiGraph](https://github.com/XiaoguangWang23/FiGraph) is a real-world dynamic heterogeneous graph of listed companies, people, auditors and other related entities, with anomaly labels for the companies. Anomaly detection is treated as node classification on the listed-company nodes.
 The target models are two GNNs (GraphSAGE and GATv2), compared against an MLP, a tabular-only XGBoost and a graph-enhanced XGBoost.
 
 Setup and commands to reproduce the results are in [README.md](README.md).
@@ -27,7 +27,7 @@ All data comes from [FiGraph](https://github.com/XiaoguangWang23/FiGraph), intro
 
 It contains three types of data:
 1. Tabular features: 775 financial and registration attributes per listed company, one snapshot per year from 2014 to 2022.
-2. Graph relationships: a heterogeneous graph connecting companies, people and other entities.
+2. Graph relationships: a heterogeneous graph of listed companies, people, auditors and other related entities.
 3. Text data, which is out of scope for this project.
 
 The graph is temporal: node features and edges are indexed by year, and the graph grows over time.
